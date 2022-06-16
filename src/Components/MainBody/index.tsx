@@ -12,11 +12,7 @@ const MainBody = () => {
 	const numWidth = Math.floor(screenWidth! / (list.length * 3));
 	const width = `${numWidth}px`;
 	const numMargin =
-		list.length < 5
-			? 10
-			: list.length < 8
-			? 8
-			: list.length < 11
+		list.length < 11
 			? 6
 			: list.length < 20
 			? 4

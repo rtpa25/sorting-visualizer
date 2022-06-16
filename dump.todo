@@ -17,4 +17,5 @@ Tech-stack to use
         ✔ The width of the indivisual bars should depend upon the state arr size @done (6/16/2022, 11:18:47 AM)
     ✔ The slider should under the hood call the function to build the new array @done (6/16/2022, 1:03:28 PM)
 ☐ Implement the sorting algorithms to sort the generated array
+    ☐ Figure out the pattern to implement a sorting algorithm 
 ☐ Build the animations to render the changes done by the sorting algos

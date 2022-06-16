@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
 import { randomIntFromInterval } from "../../utils";
+import { basicSort } from "../../utils/algorithms/basicJsSort";
 
 interface ListState {
 	list: number[];
@@ -29,9 +29,13 @@ export const counterSlice = createSlice({
 			}
 			state.list = arr;
 		},
+
+		basicJSsort: (state: ListState) => {
+			state.list = basicSort(state.list);
+		},
 	},
 });
 
-export const { generateList } = counterSlice.actions;
+export const { generateList, basicJSsort } = counterSlice.actions;
 
 export default counterSlice.reducer;

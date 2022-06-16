@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppDispatch } from "../../hooks/reduxtHooks";
-import { generateList } from "../../store/reducers/arrSlice";
+import { basicJSsort, generateList } from "../../store/reducers/arrSlice";
 import {
 	NavBarBody,
 	NavBarButton,
@@ -33,11 +33,16 @@ const NavBar = () => {
 		);
 	}, [dispatch, size]);
 
+	const basicSortHandler = () => {
+		dispatch(basicJSsort());
+	};
+
 	return (
 		<NavBarBody>
 			<NavBarButton onClick={radnomArrayClickHandler}>
 				Generate Random Array
 			</NavBarButton>
+			<NavBarButton onClick={basicSortHandler}>BasicJSSort</NavBarButton>
 			<NavBarSlider>
 				<NavBarSliderText id='arraySize'>Array Size</NavBarSliderText>
 				<NavBarSliderInput
