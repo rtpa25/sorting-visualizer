@@ -1,5 +1,8 @@
+import MainBody from "./Components/MainBody";
+import "./App.css";
+
 const App = () => {
-	return <div className='App'></div>;
+	return <MainBody />;
 };
 
 export default App;
