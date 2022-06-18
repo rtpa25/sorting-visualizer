@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { useAppDispatch } from "../../hooks/reduxtHooks";
-import { basicJSsort, generateList } from "../../store/reducers/arrSlice";
+import { FC } from "react";
+
 import {
 	NavBarBody,
 	NavBarButton,
@@ -9,40 +8,37 @@ import {
 	NavBarSliderText,
 } from "./styles";
 
-const NavBar = () => {
-	const dispatch = useAppDispatch();
-	const [size, setSize] = useState<number>(70);
+interface NavBarProps {
+	size: number;
+	setSize: React.Dispatch<React.SetStateAction<number>>;
+	bubbleSort: () => Promise<void>;
+	mergeSort: () => Promise<void>;
+	insertionSort: () => Promise<void>;
+	selectionSort: () => Promise<void>;
+	quickSort: () => Promise<void>;
+	randomizeArray: () => void;
+}
 
-	const radnomArrayClickHandler = () => {
-		dispatch(
-			generateList({
-				min: 5,
-				max: 400,
-				size: size,
-			})
-		);
-	};
-
-	useEffect(() => {
-		dispatch(
-			generateList({
-				min: 5,
-				max: 400,
-				size: size,
-			})
-		);
-	}, [dispatch, size]);
-
-	const basicSortHandler = () => {
-		dispatch(basicJSsort());
-	};
-
+const NavBar: FC<NavBarProps> = ({
+	size,
+	setSize,
+	bubbleSort,
+	mergeSort,
+	insertionSort,
+	selectionSort,
+	quickSort,
+	randomizeArray,
+}) => {
 	return (
 		<NavBarBody>
-			<NavBarButton onClick={radnomArrayClickHandler}>
+			<NavBarButton onClick={randomizeArray}>
 				Generate Random Array
 			</NavBarButton>
-			<NavBarButton onClick={basicSortHandler}>BasicJSSort</NavBarButton>
+			<NavBarButton onClick={selectionSort}>Selection Sort</NavBarButton>
+			<NavBarButton onClick={bubbleSort}>BubbleSort</NavBarButton>
+			<NavBarButton onClick={mergeSort}>MergeSort</NavBarButton>
+			<NavBarButton onClick={quickSort}>QuickSort</NavBarButton>
+			<NavBarButton onClick={insertionSort}>InsertionSort</NavBarButton>
 			<NavBarSlider>
 				<NavBarSliderText id='arraySize'>Array Size</NavBarSliderText>
 				<NavBarSliderInput
